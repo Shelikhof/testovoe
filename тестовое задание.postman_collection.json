@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "628017b7-a333-4f9c-8e42-c822b910d933",
+		"name": "тестовое задание",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31366848"
+	},
+	"item": [
+		{
+			"name": "задание 1",
+			"item": [
+				{
+					"name": "сервис 1",
+					"item": [
+						{
+							"name": "Products",
+							"item": [
+								{
+									"name": "Create Product",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"pivo\",\r\n    \"plu\": 12318\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/products/add",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"products",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Products",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"pivo\",\r\n    \"plu\": 12311\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/products?plu=12311&name=pivo",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"products"
+											],
+											"query": [
+												{
+													"key": "plu",
+													"value": "12311"
+												},
+												{
+													"key": "name",
+													"value": "pivo"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Stocks",
+							"item": [
+								{
+									"name": "Create Stock",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"shopId\": 1,\r\n    \"productId\": 1,\r\n    \"quantityOnShelf\": 20,\r\n    \"quantityInOrder\": 30\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/stocks/add",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"stocks",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Stocks",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/stocks/?shop_id=1&plu=123&quantityOnShelfFrom=60&quantityOnShelfTo=200&quantityInOrderFrom=51&quantityInOrderTo=100",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"stocks",
+												""
+											],
+											"query": [
+												{
+													"key": "shop_id",
+													"value": "1"
+												},
+												{
+													"key": "plu",
+													"value": "123"
+												},
+												{
+													"key": "quantityOnShelfFrom",
+													"value": "60"
+												},
+												{
+													"key": "quantityOnShelfTo",
+													"value": "200"
+												},
+												{
+													"key": "quantityInOrderFrom",
+													"value": "51"
+												},
+												{
+													"key": "quantityInOrderTo",
+													"value": "100"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Increase Stock",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"quantityInOrder\": 10,\r\n    \"quantityOnShelf\": 10\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/stocks/1/increase",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"stocks",
+												"1",
+												"increase"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Decrease Stock",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"quantityInOrder\": 10,\r\n    \"quantityOnShelf\": 10\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/stocks/1/decrease",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"stocks",
+												"1",
+												"decrease"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "сервис 2 (история)",
+					"item": [
+						{
+							"name": "Create Log",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"action\": \"stocks/decrease\",\r\n    \"shopId\": 1,\r\n    \"plu\": 1000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/logs/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"logs",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Logs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/logs/?plu=10001&limit=1&page=3&shop_id=2&action=stocks/decrease&from=2024-11-14&to=2024-11-15",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"logs",
+										""
+									],
+									"query": [
+										{
+											"key": "plu",
+											"value": "10001"
+										},
+										{
+											"key": "limit",
+											"value": "1"
+										},
+										{
+											"key": "page",
+											"value": "3"
+										},
+										{
+											"key": "shop_id",
+											"value": "2"
+										},
+										{
+											"key": "action",
+											"value": "stocks/decrease"
+										},
+										{
+											"key": "from",
+											"value": "2024-11-14"
+										},
+										{
+											"key": "to",
+											"value": "2024-11-15"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "задание 2",
+			"item": [
+				{
+					"name": "Set Flag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/user/fix",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user",
+								"fix"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}

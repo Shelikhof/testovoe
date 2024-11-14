@@ -1,0 +1,10 @@
+/task_1/service_1/node_modules
+/task_1/service_2/node_modules
+
+/task_1/service_1/prisma/migrations
+/task_1/service_2/prisma/migrations
+
+
+/task_2/node_modules
+/task_2/dist
+/task_2/prisma/migrations
